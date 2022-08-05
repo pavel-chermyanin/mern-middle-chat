@@ -1,5 +1,5 @@
 .home__bg {
-    background-image: url('../assets/home.jpg');
+    background-image: url('../assets/home-2.jpg');
     height: 92vh;
     background-position: center;
     background-size: cover;
@@ -9,4 +9,7 @@
 .home-message-icon {
     margin-left: 10px;
     display: inline-block;
+}
+.enter-btn{
+    margin-bottom: 30px;
 }

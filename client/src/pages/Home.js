@@ -12,16 +12,16 @@ const Home = () => {
                         <h1>Share the world with your friends!!</h1>
                         <p>Chat App lets you connect with the world</p>
                         <LinkContainer to="/chat">
-                            <Button variant='success'>
+                            <Button
+                                className="enter-btn"
+                                variant='success'>
                                 Get Started
                                 <i className="fas fa-comments home-message-icon"></i>
                             </Button>
                         </LinkContainer>
                     </div>
                 </Col>
-                <Col md={6} className="home__bg">
-
-                </Col>
+                <Col md={6} className="home__bg"></Col>
             </Row>
         </Container>
     )

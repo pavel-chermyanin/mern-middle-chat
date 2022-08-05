@@ -6,3 +6,12 @@
     background-repeat: no-repeat;
     overflow-x: hidden;
 }
+@media(max-width: 768px) {
+    .login__bg{
+        display: none;
+    }
+    .form__container{
+        margin-top: 40px;
+        height: 70vh;
+    }
+}
