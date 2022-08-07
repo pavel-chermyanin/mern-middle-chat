@@ -1,5 +1,5 @@
 .message-output{
-    height: 80vh;
+    height: 50vh;
     border: 1px solid lightgray;
     overflow-y: auto;
     margin-bottom: 20px;
