@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row, Spinner } from 'react-bootstrap'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import {useLoginUserMutation} from '../services/appApi'
@@ -11,7 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const {socket} = useContext(AppContext)
-    const [loginUser, {isLoding, error}] = useLoginUserMutation()
+    const [loginUser, {isLoading, error}] = useLoginUserMutation()
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -38,6 +38,7 @@ const Login = () => {
                             maxWidth: 500
                         }}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
+                            {error && <p className="alert alert-danger">{error.data}</p>}
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
                                 onChange={e => setEmail(e.target.value)}
@@ -62,7 +63,7 @@ const Login = () => {
                         </Form.Group>
 
                         <Button variant="primary" type="submit">
-                            Login
+                            {isLoading ? <Spinner animation="grow"/> : 'Login'}
                         </Button>
                         <div className="py-4">
                             <p className="text-center">

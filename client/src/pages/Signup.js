@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import botImg from "../assets/bot.jpg";
@@ -103,6 +103,7 @@ const Signup = () => {
                 onChange={validateImg}
               />
             </div>
+            {error && <p className="alert alert-danger">{error.data}</p>}
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -136,7 +137,7 @@ const Signup = () => {
             </Form.Group>
 
             <Button disabled={uploadingImg} variant="primary" type="submit">
-              {uploadingImg ? "Signing you up..." : "Signup"}
+            {uploadingImg || isLoading? <Spinner animation="grow"/> : 'Login'}
             </Button>
             <div className="py-4">
               <p className="text-center">

@@ -59,9 +59,10 @@ io.on("connection", (socket) => {
     io.emit("new-user", members);
   });
 
-  socket.on("join-room", async (room) => {
-    socket.join(room);
-    let roomMessages = await getLastMessages(room);
+  socket.on("join-room", async (newRoom, previousRoom) => {
+    socket.join(newRoom);
+    socket.leave(previousRoom)
+    let roomMessages = await getLastMessages(newRoom);
     roomMessages = sortRoomMessagesByDate(roomMessages);
     socket.emit("room-messages", roomMessages);
   });
